@@ -1,0 +1,60 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "shop",
+      "createdAt": "2023-07-31T08:30:00",
+      "content": "Buy groceries for the week.",
+      "category": "Task",
+      "isArchived": false
+    },
+    {
+      "id": 2,
+      "name": "To visit the park",
+      "createdAt": "2023-07-30T14:15:00",
+      "content": "To visit the new park. It's beautiful.",
+      "category": "Random Thought",
+      "isArchived": false
+    },
+    {
+      "id": 3,
+      "name": "Project",
+      "createdAt": "2023-07-29T09:45:00",
+      "content": "Idea for a new app project.",
+      "category": "Idea",
+      "isArchived": false
+    },
+    {
+      "id": 4,
+      "name": "Good thought",
+      "createdAt": "2023-07-30T14:15:00",
+      "content": "Visited the new park. It's beautiful.",
+      "category": "Random Thought",
+      "isArchived": false
+    },
+    {
+      "id": 5,
+      "name": "visit dentist",
+      "createdAt": "2023-07-15T14:15:00",
+      "content": "I moved my appointment it from 3/5/2021 to 5/5/21.",
+      "category": "Random Thought",
+      "isArchived": false
+    },
+    {
+      "id": 6,
+      "name": "Test",
+      "createdAt": "2023-07-06T14:15:00",
+      "content": "Visited the new park. It's beautiful.",
+      "category": "Random Thought",
+      "isArchived": false
+    },
+    {
+      "id": 7,
+      "name": "Test",
+      "createdAt": "2023-07-17T14:15:00",
+      "content": "Yohoho! :)",
+      "category": "Random Thought",
+      "isArchived": false
+    }
+  ]
+}
