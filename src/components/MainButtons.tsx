@@ -1,11 +1,10 @@
-import { useAppDispatch } from "../hooks/useStore";
-import { openModal } from "../redux/modalSlice";
+import { useActions } from "../hooks/useActions";
 
 export const MainButtons = () => {
-  const dispatch = useAppDispatch();
+  const { openModal } = useActions();
 
-  const handleOpenArchiveTable = () => dispatch(openModal("archiveTable"));
-  const handleOpenEditNoteForm = () => dispatch(openModal("editNoteForm"));
+  const handleOpenArchiveTable = () => openModal("archiveTable");
+  const handleOpenEditNoteForm = () => openModal("editNoteForm");
 
   return (
     <div className="flex justify-evenly">

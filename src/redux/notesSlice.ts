@@ -14,27 +14,25 @@ export const notesList = createSlice({
       state.push(action.payload);
     },
     deleteNote: (state, action) => {
-      const id = action.payload;
+      const {id} = action.payload;
       const i = state.findIndex((note) => note.id === id);
       if (i === -1) return;
 
       state.splice(i, 1);
     },
-    toggleNoteArchivedStatus: (state, action) => {
+    toggleArchiveStatus: (state, action) => {
       const { id, status } = action.payload;
       const i = state.findIndex((note) => note.id === id);
       if (i === -1) return;
 
-      if (status === "archived") {
+      if (status === "archive") {
         state[i].isArchived = true;
-      } else if (status === "extracted") {
+      } else if (status === "unarchive") {
         state[i].isArchived = false;
       }
     },
   },
 });
 
-export const { addNote, deleteNote, toggleNoteArchivedStatus } =
-  notesList.actions;
-
-export default notesList.reducer;
+export const { actions: notesListActions, reducer: notesListReducer } =
+  notesList;

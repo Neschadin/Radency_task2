@@ -1,16 +1,22 @@
-import { CategoryIcon } from "./CategotyIcon";
+import { CategoryIcon } from "./CategoryIcon";
 import { ActionButton } from "./ActionButton";
 import { extractDatesFromContent } from "../../utils";
 import { TNoteData } from "../../types";
+import { useActions } from "../../hooks/useActions";
 
-type TRow = {
-  note: TNoteData;
-  // isArchiveRow?: boolean;
-};
-
-const TableRow = ({ note }: TRow) => {
+const MainTableRow = ({ note }: { note: TNoteData }) => {
+  const { toggleArchiveStatus, deleteNote } = useActions();
   const { id, name, createdAt, content, category, isArchived } = note;
   const parsedDates = extractDatesFromContent(content);
+
+  const handleArchiveButton = () => {
+    const status = isArchived ? "unarchive" : "archive";
+    toggleArchiveStatus({ id, status });
+  };
+
+  const handleDeleteButton = () => {
+    deleteNote({ id });
+  };
 
   return (
     <tr>
@@ -23,11 +29,11 @@ const TableRow = ({ note }: TRow) => {
       {!isArchived && <ActionButton icon="edit" onClick={() => {}} />}
       <ActionButton
         icon={isArchived ? "unarchive" : "archive"}
-        onClick={() => {}}
+        onClick={handleArchiveButton}
       />
-      <ActionButton icon="delete" onClick={() => {}} />
+      <ActionButton icon="delete" onClick={handleDeleteButton} />
     </tr>
   );
 };
 
-export { TableRow };
+export { MainTableRow };

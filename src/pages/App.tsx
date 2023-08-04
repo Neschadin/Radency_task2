@@ -1,5 +1,4 @@
 import { ContainerMaxW1366, MainButtons, TableTemplate } from "../components";
-import { ModalWindow } from "../components/ModalWindow";
 
 export const App = () => {
   return (
@@ -9,8 +8,6 @@ export const App = () => {
       <MainButtons />
 
       <TableTemplate variant="summary" />
-
-      <ModalWindow />
     </ContainerMaxW1366>
   );
 };

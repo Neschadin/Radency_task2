@@ -55,6 +55,14 @@
       "content": "Yohoho! :)",
       "category": "Random Thought",
       "isArchived": false
+    },
+    {
+      "id": 8,
+      "name": "Archived",
+      "createdAt": "2023-07-17T14:15:00",
+      "content": "Yohoho! :)",
+      "category": "Random Thought",
+      "isArchived": true
     }
   ]
 }

@@ -1,13 +1,7 @@
-import { TableRow } from "./TableRow";
+import { TTableVariant } from "../../types";
+import { TableBody } from "./TableBody";
 
-import data from "../../redux/data.json";
-import { TNoteData } from "../../types";
-
-type TTable = { variant: "notes" | "archive" | "summary" };
-
-export const TableTemplate = ({ variant }: TTable) => {
-  const noteList: TNoteData[] = data.data;
-
+const TableTemplate = ({ variant }: { variant: TTableVariant }) => {
   return (
     <div>
       <table className="w-full">
@@ -16,6 +10,7 @@ export const TableTemplate = ({ variant }: TTable) => {
             <td className="w-[50px]"></td>
             {variant === "summary" && (
               <>
+                <th>Note Category</th>
                 <th>Active</th>
                 <th>Archived</th>
               </>
@@ -37,12 +32,10 @@ export const TableTemplate = ({ variant }: TTable) => {
           </tr>
         </thead>
 
-        <tbody>
-          {noteList.map((note) => (
-            <TableRow key={note.id} note={note} />
-          ))}
-        </tbody>
+        <TableBody variant={variant} />
       </table>
     </div>
   );
 };
+
+export { TableTemplate };
