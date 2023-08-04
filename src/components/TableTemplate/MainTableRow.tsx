@@ -10,8 +10,8 @@ const MainTableRow = ({ note }: { note: TNoteData }) => {
   const parsedDates = extractDatesFromContent(content);
 
   const handleArchiveButton = () => {
-    const status = isArchived ? "unarchive" : "archive";
-    toggleArchiveStatus({ id, status });
+    const actionType = isArchived ? "unarchive" : "archive";
+    toggleArchiveStatus({ id, actionType });
   };
 
   const handleDeleteButton = () => {

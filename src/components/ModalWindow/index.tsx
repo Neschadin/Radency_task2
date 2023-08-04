@@ -2,7 +2,7 @@ import { MouseEvent, useEffect } from "react";
 import { useAppSelector } from "../../hooks/useStore";
 import { useActions } from "../../hooks/useActions";
 
-import { EditNoteForm } from "./EditNoteForm";
+import { NoteForm } from "./NoteForm";
 import { TableTemplate } from "../TableTemplate";
 import { useTableData } from "../../hooks/useTableData";
 
@@ -43,8 +43,8 @@ export const ModalWindow = () => {
           </button>
         </div>
 
-        {modalContent === "editNoteForm" && <EditNoteForm />}
-
+        {modalContent === "editNote" && <NoteForm actionType={modalContent} />}
+        {modalContent === "addNote" && <NoteForm actionType={modalContent} />}
         {modalContent === "archiveTable" && <TableTemplate variant="archive" />}
       </div>
     </div>

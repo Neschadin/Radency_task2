@@ -4,7 +4,7 @@ export const MainButtons = () => {
   const { openModal } = useActions();
 
   const handleOpenArchiveTable = () => openModal("archiveTable");
-  const handleOpenEditNoteForm = () => openModal("editNoteForm");
+  const handleOpenEditNoteForm = () => openModal("editNote");
 
   return (
     <div className="flex justify-evenly">

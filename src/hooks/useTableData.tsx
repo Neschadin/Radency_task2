@@ -30,7 +30,7 @@ const getSummaryData = (notes: TNoteData[]) => {
 };
 
 const useTableData = (variant: TTableVariant) => {
-  const { notes } = useAppSelector((state) => state);
+  const notes = useAppSelector((state) => state.notes);
   let data: TNoteData[] | TSummaryResult | null = null;
 
   if (variant === "notes") {
