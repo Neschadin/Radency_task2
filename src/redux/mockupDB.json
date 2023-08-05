@@ -1,0 +1,68 @@
+{
+  "data": [
+    {
+      "id": "V1StGXR8_Z5jdHi6B-myT",
+      "name": "shop",
+      "createdAt": "2023-07-31T08:30:00",
+      "content": "Buy groceries for the week.",
+      "category": "Task",
+      "isArchived": false
+    },
+    {
+      "id": "X3PtzKQz_Q6pdLo7D-guV",
+      "name": "To visit the park",
+      "createdAt": "2023-07-30T14:15:00",
+      "content": "To visit the new park. It's beautiful.",
+      "category": "Random Thought",
+      "isArchived": false
+    },
+    {
+      "id": "Y2QbxRJm_R8sfNu9E-lwW",
+      "name": "Project",
+      "createdAt": "2023-07-29T09:45:00",
+      "content": "Idea for a new app project.",
+      "category": "Idea",
+      "isArchived": false
+    },
+    {
+      "id": "Z4RcySLn_S9tgO0xF-mxX",
+      "name": "Good thought",
+      "createdAt": "2023-07-30T14:15:00",
+      "content": "Visited the new park. It's beautiful.",
+      "category": "Random Thought",
+      "isArchived": false
+    },
+    {
+      "id": "A5TuzDMv_T1jiP1WG-nyY",
+      "name": "visit dentist",
+      "createdAt": "2023-07-15T14:15:00",
+      "content": "I moved my appointment it from 3/5/2021 to 5/5/21.",
+      "category": "Random Thought",
+      "isArchived": false
+    },
+    {
+      "id": "B6UvwENw_U2rkQ2VH-ozZ",
+      "name": "Test",
+      "createdAt": "2023-07-06T14:15:00",
+      "content": "Visited the new park. It's beautiful.",
+      "category": "Random Thought",
+      "isArchived": false
+    },
+    {
+      "id": "C7VxyFOx_V3olR3CI-paA",
+      "name": "Test",
+      "createdAt": "2023-07-17T14:15:00",
+      "content": "Yohoho! :)",
+      "category": "Random Thought",
+      "isArchived": false
+    },
+    {
+      "id": "D8WyzGPu_W4mfS4DJ-qbB",
+      "name": "Archived",
+      "createdAt": "2023-07-17T14:15:00",
+      "content": "Yohoho! :)",
+      "category": "Random Thought",
+      "isArchived": true
+    }
+  ]
+}
