@@ -1,38 +1,14 @@
-import { ChangeEvent, FormEvent, useState } from "react";
 import { CATEGORIES } from "../../constants";
-import { useActions } from "../../hooks/useActions";
-import { useNoteForm } from "../../hooks/useForm";
+import { useNoteForm } from "../../hooks";
 
-type TNoteForm = { actionType: "editNote" | "addNote" };
-
-export const NoteForm = ({ actionType }: TNoteForm) => {
-const {}=useNoteForm(actionType)
-
-  const { closeModal, addNote } = useActions();
-  const [formData, setFormData] = useState({
-    name: "",
-    category: CATEGORIES[0],
-    content: "",
-  });
-
-  const handleCloseModal = () => closeModal();
-
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    addNote(formData);
-    handleCloseModal();
-  };
-
-  const handleInputChange = (
-    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({ ...prevData, [name]: value }));
-  };
+export const NoteForm = () => {
+  const { formData, handleInputChange, handleSubmit } = useNoteForm();
+  const { name, category, content } = formData;
+  const formTitle = name ? "Edit Task" : "Add Task";
 
   return (
     <div>
-      <h3 className="text-center font-semibold">Add/Edit Task</h3>
+      <h3 className="text-center font-semibold">{formTitle}</h3>
 
       <form onSubmit={handleSubmit}>
         <div className="flex w-96 flex-col gap-2">
@@ -42,17 +18,17 @@ const {}=useNoteForm(actionType)
             id="modal-name"
             name="name"
             className="rounded-sm p-2 text-slate-800"
-            value={formData.name}
+            value={name}
             onChange={handleInputChange}
             required
-          />
+          ></input>
 
           <label htmlFor="modal-category">Category:</label>
           <select
             id="modal-category"
             name="category"
             className="rounded-sm p-2 text-slate-800"
-            value={formData.category}
+            value={category}
             onChange={handleInputChange}
             required
           >
@@ -68,12 +44,10 @@ const {}=useNoteForm(actionType)
             id="modal-content"
             name="content"
             className="rounded-sm p-2 text-slate-800"
-            value={formData.content}
+            value={content}
             onChange={handleInputChange}
             required
           ></textarea>
-
-          {/* <input type="hidden" id="modal-taskId" name="taskId" /> */}
 
           <button
             type="submit"

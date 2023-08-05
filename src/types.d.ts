@@ -1,12 +1,7 @@
-import { store } from "./redux/store";
-
-export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;
-
 export type TTableVariant = "notes" | "archive" | "summary";
 
 export type TNoteData = {
-  id: number;
+  id: string;
   createdAt: string;
   name: string;
   category: string;

@@ -3,13 +3,13 @@ import { useActions } from "../hooks/useActions";
 export const MainButtons = () => {
   const { openModal } = useActions();
 
-  const handleOpenArchiveTable = () => openModal("archiveTable");
-  const handleOpenEditNoteForm = () => openModal("editNote");
+  const handleOpenArchiveTable = () => openModal({ content: "archiveTable" });
+  const handleOpenNoteForm = () => openModal({ content: "noteForm" });
 
   return (
     <div className="flex justify-evenly">
       <button
-        onClick={handleOpenEditNoteForm}
+        onClick={handleOpenNoteForm}
         className="flex items-center gap-2 rounded-md border-2 border-gray-400 px-4 py-2 transition hover:bg-gray-500"
       >
         <span className="material-symbols-outlined">add_circle</span>

@@ -1,32 +1,49 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { nanoid } from "nanoid";
 
-
-import data from "./data.json";
+import { TPAddNote, TPDeleteNote, TPToggleStatus, TPUpdateNote } from "./types";
 import { TNoteData } from "../types";
+
+import mockupDB from "./mockupDB.json";
+
+const indexFinder = (state: TNoteData[], id: string) =>
+  state.findIndex((note) => note.id === id);
 
 export const notesList = createSlice({
   name: "notesList",
-  initialState: data.data as TNoteData[],
+  initialState: mockupDB.data as TNoteData[],
   reducers: {
-    addNote: (state, action) => {
-      const { id, note } = action.payload;
-      const isExistId = state.some((note) => note.id === id);
-      if (isExistId) return;
-
-      note.id = 
-      state.push(note);
+    addNote: {
+      reducer: (state, { payload }: TPAddNote) => {
+        state.push(payload);
+      },
+      prepare: ({ formData }) => {
+        const now = new Date();
+        const payload: TNoteData = {
+          id: nanoid(),
+          createdAt: now.toJSON(),
+          isArchived: false,
+          ...formData,
+        };
+        return { payload };
+      },
     },
-    updateNote: () => {},
-    deleteNote: (state, action) => {
-      const { id } = action.payload;
-      const i = state.findIndex((note) => note.id === id);
+    updateNote: (state, { payload }: TPUpdateNote) => {
+      const { name, content, category } = payload.formData;
+      const i = indexFinder(state, payload.id);
+      if (i === -1) return;
+
+      state[i] = { ...state[i], name, content, category };
+    },
+    deleteNote: (state, { payload }: TPDeleteNote) => {
+      const i = indexFinder(state, payload.id);
       if (i === -1) return;
 
       state.splice(i, 1);
     },
-    toggleArchiveStatus: (state, action) => {
+    toggleArchiveStatus: (state, action: TPToggleStatus) => {
       const { id, actionType } = action.payload;
-      const i = state.findIndex((note) => note.id === id);
+      const i = indexFinder(state, id);
       if (i === -1) return;
 
       if (actionType === "archive") {

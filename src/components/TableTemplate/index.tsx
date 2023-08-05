@@ -3,7 +3,7 @@ import { TableBody } from "./TableBody";
 
 const TableTemplate = ({ variant }: { variant: TTableVariant }) => {
   return (
-    <div>
+    <div className="w-full">
       <table className="w-full">
         <thead className="h-12 w-full">
           <tr className="w-full bg-gray-400">
@@ -20,7 +20,7 @@ const TableTemplate = ({ variant }: { variant: TTableVariant }) => {
                 <th className="w-[12%]">Name</th>
                 <th className="w-[10%]">Created</th>
                 <th className="w-[14%]">Category</th>
-                <th className="">Content</th>
+                <th className="min-w-1/2">Content</th>
                 <th className="w-[14%]">Dates</th>
                 <td className="w-[50px] bg-gray-500 bg-opacity-50"></td>
                 <td className="w-[50px] bg-gray-500 bg-opacity-50"></td>

@@ -16,7 +16,7 @@ export const CategoryIcon = ({ category }: { category: string }) => {
   }
 
   return (
-    <td className="text-center w-12">
+    <td className="w-12 text-center">
       <span className="material-symbols-outlined">{iconName}</span>
     </td>
   );
