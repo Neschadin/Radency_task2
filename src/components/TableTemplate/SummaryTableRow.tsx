@@ -1,14 +1,15 @@
 import { CategoryIcon } from "./CategoryIcon";
-import { TSummaryResult } from "../../types";
+import { TCategory, TSummaryResult } from "../../types";
 
 type TRow = {
   data: TSummaryResult;
-  category: string;
+  category: TCategory;
 };
 
 export const SummaryTableRow = ({ data, category }: TRow) => {
-  const activeCount = data[category] ? data[category][0] : 0;
-  const archivedCount = data[category] ? data[category][1] : 0;
+  const rowData = data[category];
+  const activeCount = rowData ? rowData[0] : 0;
+  const archivedCount = rowData ? rowData[1] : 0;
 
   return (
     <tr>

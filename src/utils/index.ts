@@ -8,24 +8,11 @@ export const extractDatesFromContent = (content: string) => {
 };
 
 export function formatDate(dateString: string) {
-  const monthNames = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec",
-  ];
   const date = new Date(dateString);
   const day = date.getDate();
-  const month = monthNames[date.getMonth()];
+  const month = date.toLocaleString("en-US", { month: "short" });
   const year = date.getFullYear();
 
   return `${month} ${day}, ${year}`;
 }
+

@@ -54,7 +54,6 @@ const useNoteForm = () => {
         setFormData({ name, category, content });
       }
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [noteId]);
 
   return {

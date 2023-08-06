@@ -26,7 +26,7 @@ const TableTemplate = ({ variant }: { variant: TTableVariant }) => {
                 <td className="w-[50px] bg-gray-500 bg-opacity-50"></td>
               </>
             )}
-            {variant === "notes" && (
+            {variant === "activeNotes" && (
               <td className="w-[50px] bg-gray-500 bg-opacity-50"></td>
             )}
           </tr>
