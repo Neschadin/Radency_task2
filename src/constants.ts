@@ -1,1 +1,1 @@
-export const CATEGORIES = ['Task', 'Random Thought', 'Idea'];
+export const CATEGORIES = ["Task", "Random Thought", "Idea"] as const;

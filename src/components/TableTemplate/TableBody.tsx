@@ -5,7 +5,7 @@ import { SummaryTableRow } from "./SummaryTableRow";
 import { EmptyMessage } from "./EmptyMessage";
 import { useTableData } from "../../hooks/useTableData";
 
-const TableBody = ({ variant }: { variant: TTableVariant }) => {
+export const TableBody = ({ variant }: { variant: TTableVariant }) => {
   const data = useTableData(variant);
 
   const message =
@@ -13,25 +13,21 @@ const TableBody = ({ variant }: { variant: TTableVariant }) => {
 
   return (
     <tbody>
-      {(variant === "notes" || variant === "archive") &&
-        (data ? (
-          (data as TNoteData[]).map((note) => (
-            <MainTableRow key={note.id} note={note} />
-          ))
-        ) : (
-          <EmptyMessage message={message} />
-        ))}
-
-      {variant === "summary" &&
+      {variant === "summary" ? (
         CATEGORIES.map((category, i) => (
           <SummaryTableRow
             key={i + category}
             data={data as TSummaryResult}
             category={category}
           />
-        ))}
+        ))
+      ) : data ? (
+        (data as TNoteData[]).map((note) => (
+          <MainTableRow key={note.id} note={note} />
+        ))
+      ) : (
+        <EmptyMessage message={message} />
+      )}
     </tbody>
   );
 };
-
-export { TableBody };

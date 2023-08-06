@@ -1,21 +1,21 @@
-export type TTableVariant = "notes" | "archive" | "summary";
+import { CATEGORIES } from "./constants";
 
-export type TNoteData = {
+export type TCategory = (typeof CATEGORIES)[number];
+
+export type TTableVariant = "activeNotes" | "archivedNotes" | "summary";
+
+export type TFormData = {
+  name: string;
+  category: TCategory;
+  content: string;
+};
+
+export type TNoteData = TFormData & {
   id: string;
   createdAt: string;
-  name: string;
-  category: string;
-  content: string;
   isArchived: boolean;
 };
 
-export type TFormData = {
-  id?: number;
-  name: string;
-  category: string;
-  content: string;
-};
-
 export type TSummaryResult = {
-  [category: string]: [number, number];
+  [category in TCategory]: [number, number];
 };

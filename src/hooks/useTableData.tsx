@@ -12,7 +12,7 @@ const getActiveNotes = (notes: TNoteData[]) => {
 };
 
 const getSummaryData = (notes: TNoteData[]) => {
-  const summary: TSummaryResult = {};
+  const summary = {} as TSummaryResult;
 
   notes.forEach(({ category, isArchived }) => {
     if (!summary[category]) {
@@ -29,13 +29,13 @@ const getSummaryData = (notes: TNoteData[]) => {
   return summary;
 };
 
-const useTableData = (variant: TTableVariant) => {
+export const useTableData = (variant: TTableVariant) => {
   const notes = useAppSelector((state) => state.notes);
   let data: TNoteData[] | TSummaryResult | null = null;
 
-  if (variant === "notes") {
+  if (variant === "activeNotes") {
     data = getActiveNotes(notes);
-  } else if (variant === "archive") {
+  } else if (variant === "archivedNotes") {
     data = getArchivedNotes(notes);
   } else if (variant === "summary") {
     data = getSummaryData(notes);
@@ -43,5 +43,3 @@ const useTableData = (variant: TTableVariant) => {
 
   return data;
 };
-
-export { useTableData };

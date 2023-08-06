@@ -1,41 +1,10 @@
-import { MouseEvent, useEffect } from "react";
-import { useAppSelector, useActions, useTableData } from "../../hooks";
-
 import { NoteForm } from "./NoteForm";
 import { TableTemplate } from "../TableTemplate";
+import { useModal } from "../../hooks/useModal";
 
 export const ModalWindow = () => {
-  const data = useTableData("archive");
-  const { closeModal } = useActions();
-  const { isModalOpen, modalContent } = useAppSelector((state) => state.modal);
-
-  const handleBackdropClick = (e: MouseEvent<HTMLDivElement>) => {
-    if (e.target === e.currentTarget) {
-      closeModal();
-    }
-  };
-
-  useEffect(() => {
-    if (modalContent === "archiveTable" && !data) {
-      closeModal();
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [data]);
-
-  useEffect(() => {
-    const handleEscKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape" || e.key === "Esc") {
-        closeModal();
-      }
-    };
-
-    if (isModalOpen) {
-      window.addEventListener("keydown", handleEscKey);
-    }
-
-    return () => window.removeEventListener("keydown", handleEscKey);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isModalOpen]);
+  const { isModalOpen, handleBackdropClick, closeModal, modalContent } =
+    useModal();
 
   return !isModalOpen ? null : (
     <div
@@ -50,7 +19,7 @@ export const ModalWindow = () => {
         </div>
 
         {modalContent === "noteForm" && <NoteForm />}
-        {modalContent === "archiveTable" && <TableTemplate variant="archive" />}
+        {modalContent === "archiveTable" && <TableTemplate variant="activeNotes" />}
       </div>
     </div>
   );
