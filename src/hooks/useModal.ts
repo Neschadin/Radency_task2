@@ -4,7 +4,7 @@ import { useAppSelector } from "./useStore";
 import { useTableData } from "./useTableData";
 
 export const useModal = () => {
-  const data = useTableData("archive");
+  const data = useTableData("archivedNotes");
   const { closeModal } = useActions();
   const { isModalOpen, modalContent } = useAppSelector((state) => state.modal);
 

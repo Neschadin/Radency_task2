@@ -9,7 +9,7 @@ export const TableBody = ({ variant }: { variant: TTableVariant }) => {
   const data = useTableData(variant);
 
   const message =
-    variant !== "summary" && variant === "notes" ? "Add your task" : "Empty!";
+    variant !== "summary" && variant === "activeNotes" ? "Add your task" : "Empty!";
 
   return (
     <tbody>

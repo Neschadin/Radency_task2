@@ -19,7 +19,7 @@ export const ModalWindow = () => {
         </div>
 
         {modalContent === "noteForm" && <NoteForm />}
-        {modalContent === "archiveTable" && <TableTemplate variant="activeNotes" />}
+        {modalContent === "archiveTable" && <TableTemplate variant="archivedNotes" />}
       </div>
     </div>
   );
